@@ -1,21 +1,20 @@
-/*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
 .site-header {
 	width: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
 	.wrapper {
-		@include debug;
-		max-width: $size__site-maxwidth;
-		width: $size__site-width;
-		margin: 0 auto;
-		padding: 1px 0;
-		@include flex(row, no-wrap, space-between, center);
-		.site-branding, .main-navigation {
-			@include debug;
-			width: 50%;
+		background-color: orange;
+		.row {
+			width: $size__site-width;
+			margin: 0 auto;
+			padding: 1px 0;
+			@include flex(row, no-wrap, space-between, center);
+			.site-branding {
+				@include debug;
+				width: 80%
+			}
+			.main-navigation {
+				@include debug;
+				width: 20%;
+			}
 		}
 	}
 }

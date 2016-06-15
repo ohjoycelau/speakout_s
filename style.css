@@ -24,6 +24,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ----------------------------------------------------------------
 # Normalize
 # Typography
+# Structure and Layout
+	## Content
 # Elements
 # Forms
 # Navigation
@@ -32,12 +34,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Accessibility
 # Alignments
 # Clearings
-# Header
 # Widgets
+# Header
 # Content
     ## Posts and pages
 	## Comments
 # Infinite scroll
+# Footer
 # Media
 	## Captions
 	## Galleries
@@ -274,6 +277,13 @@ big {
   font-size: 125%; }
 
 /*--------------------------------------------------------------
+# Structure and Layout
+--------------------------------------------------------------*/
+.site-content {
+  width: 90%;
+  margin: 0 auto; }
+
+/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 html {
@@ -473,6 +483,11 @@ a {
 
   .main-navigation ul {
     display: block; } }
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
@@ -571,40 +586,6 @@ a {
   clear: both; }
 
 /*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
-.site-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0; }
-  .site-header .wrapper {
-    background-color: rgba(255, 0, 0, 0.25);
-    max-width: 990px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 1px 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-wrap: no-wrap;
-    -webkit-flex-wrap: no-wrap;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
-    align-items: center;
-    -webkit-align-items: center; }
-    .site-header .wrapper .site-branding, .site-header .wrapper .main-navigation {
-      background-color: rgba(255, 0, 0, 0.25);
-      width: 50%; }
-
-/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 .widget {
@@ -612,6 +593,37 @@ a {
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header {
+  width: 100%; }
+  .site-header .wrapper {
+    background-color: orange; }
+    .site-header .wrapper .row {
+      width: 90%;
+      margin: 0 auto;
+      padding: 1px 0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-wrap: no-wrap;
+      -webkit-flex-wrap: no-wrap;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      align-items: center;
+      -webkit-align-items: center; }
+      .site-header .wrapper .row .site-branding {
+        background-color: rgba(255, 0, 0, 0.25);
+        width: 80%; }
+      .site-header .wrapper .row .main-navigation {
+        background-color: rgba(255, 0, 0, 0.25);
+        width: 20%; }
 
 /*--------------------------------------------------------------
 # Content
@@ -663,6 +675,17 @@ a {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
   display: block; }
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background-color: teal; }
+  .site-footer .site-info {
+    background-color: rgba(255, 0, 0, 0.25); }
+    .site-footer .site-info .row {
+      width: 90%;
+      margin: 0 auto; }
 
 /*--------------------------------------------------------------
 # Media

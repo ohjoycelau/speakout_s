@@ -25,6 +25,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ----------------------------------------------------------------
 # Normalize
 # Typography
+# Structure and Layout
+	## Content
 # Elements
 # Forms
 # Navigation
@@ -33,12 +35,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Accessibility
 # Alignments
 # Clearings
-# Header
 # Widgets
+# Header
 # Content
     ## Posts and pages
 	## Comments
 # Infinite scroll
+# Footer
 # Media
 	## Captions
 	## Galleries
@@ -55,6 +58,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";
+
+/*--------------------------------------------------------------
+# Structure and Layout
+--------------------------------------------------------------*/
+@import "layout/content";
 
 /*--------------------------------------------------------------
 # Elements
@@ -87,14 +95,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
-@import "layout/header";
-
-/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 @import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+@import "layout/header";
 
 /*--------------------------------------------------------------
 # Content
@@ -105,6 +113,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Infinite scroll
 --------------------------------------------------------------*/
 @import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+@import "layout/footer";
 
 /*--------------------------------------------------------------
 # Media

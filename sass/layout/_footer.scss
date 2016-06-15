@@ -1,0 +1,10 @@
+.site-footer{
+	background-color: teal;
+	.site-info {
+		@include debug;
+		.row {
+			width: $size__site-width;
+			margin: 0 auto;
+		}
+	}
+}
