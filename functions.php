@@ -7,6 +7,8 @@
  * @package speakout_s
  */
 
+require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
+
 if ( ! function_exists( 'speakout_s_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -80,23 +82,140 @@ function speakout_s_content_width() {
 }
 add_action( 'after_setup_theme', 'speakout_s_content_width', 0 );
 
+
+
+
+
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Custom Post Type.
  */
-function speakout_s_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'speakout_s' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'speakout_s' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+function speakout_s_post_type() {
+	register_post_type( 'service',
+		array(
+			'labels' => array(
+				'name' => __( 'Services' ),
+				'singular_name' => __( 'Service' ),
+				'menu_name' => __( 'Services' ),
+				'add_new_item' => __( 'Add New Service' ),
+			),
+			'public' => true,
+			'has_archive' => false,
+			'supports' => array( 'title', 'thumbnail', 'revisions' ),
+			'menu_position' => 2,
+			'taxonomies' => array('post_tag'),
+		)
+	);
 }
-add_action( 'widgets_init', 'speakout_s_widgets_init' );
+add_action( 'init', 'speakout_s_post_type' );
+
+
+
+add_action('admin_menu','remove_default_post_type');
+function remove_default_post_type() {
+	remove_menu_page('edit.php');
+}  
+
+
+
+
+
+
+
+
+
+
+/**
+ * Custom Post Type.
+ */
+function speakout_s_custom_post_type() {
+	register_post_type( 'learn',
+		array(
+			'labels' => array(
+				'name' => __( 'Learning' ),
+				'singular_name' => __( 'Learn' ),
+				'menu_name' => __( 'Learning' ),
+				'add_new_item' => __( 'Add New Learning' ),
+			),
+			'public' => true,
+			'has_archive' => false,
+			'supports' => array( 'title', 'thumbnail', 'revisions' ),
+			'menu_position' => 3,
+			'taxonomies' => array('post_tag'),
+		)
+	);
+}
+add_action( 'init', 'speakout_s_custom_post_type' );
+
+
+
+/* Define the custom box */
+add_action( 'add_meta_boxes', 'approach_add_custom_box' );
+
+/* Do something with the data entered */
+add_action( 'save_post', 'approach_save_postdata' );
+
+/* Adds a box to the main column on the Post and Page edit screens */
+function approach_add_custom_box() {
+  add_meta_box( 'wp_editor_approach_box', 'Approach', 'wp_editor_meta_box', 'learn', 'normal', 'high' );
+}
+
+/* Prints the box content */
+function wp_editor_meta_box( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'approach_noncename' );
+
+  $field_value = get_post_meta( $post->ID, '_wp_editor_approach', false );
+
+  $args = array (
+        'tinymce' => true,
+        'quicktags' => true,
+        'media_buttons' => false,
+        'textarea_rows' => 10,
+  );
+  wp_editor( $field_value[0], '_wp_editor_approach', $args );
+}
+
+/* When the post is saved, saves our custom data */
+function approach_save_postdata( $post_id ) {
+
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
+
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+  if ( ( isset ( $_POST['approach_noncename'] ) ) && ( ! wp_verify_nonce( $_POST['approach_noncename'], plugin_basename( __FILE__ ) ) ) )
+      return;
+
+  // Check permissions
+  if ( ( isset ( $_POST['post_type'] ) ) && ( 'page' == $_POST['post_type'] )  ) {
+    if ( ! current_user_can( 'edit_page', $post_id ) ) {
+      return;
+    }    
+  }
+  else {
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+      return;
+    }
+  }
+
+  // OK, we're authenticated: we need to find and save the data
+  if ( isset ( $_POST['_wp_editor_approach'] ) ) {
+    update_post_meta( $post_id, '_wp_editor_approach', $_POST['_wp_editor_approach'] );
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 /**
  * Enqueue scripts and styles.
@@ -105,13 +224,9 @@ function speakout_s_scripts() {
 	wp_enqueue_style( 'speakout_s-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'speakout_s-jquery', get_template_directory_uri() . '/js/jquery-1.9.1.min.js', array(), '1.9.1', true );
-
 	wp_enqueue_script( 'speakout_s-sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array(), '1.0', true );
-
 	wp_enqueue_script( 'speakout_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'speakout_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'speakout_s-functions', get_template_directory_uri() . '/js/functions.js', array(), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
