@@ -1,20 +1,59 @@
 .site-header {
 	width: 100%;
-	.wrapper {
+	-webkit-transform: translate3d(0,0,0);
+	.row {
+		width: $size__site-width;
+		margin: 0 auto;
+		padding: 1px 0;
+		@include flex(row, no-wrap, flex-end, center);
+	}
+	.primary {
 		background-color: orange;
+		.site-branding {
+			@include debug;
+			width: 80%;
+		}
+		.main-navigation {
+			@include debug;
+			width: 20%;
+			.mbl-menu {
+				float: right;
+			}
+		}
+	}
+	.secondary {
+		background-color: green;
 		.row {
-			width: $size__site-width;
-			margin: 0 auto;
-			padding: 1px 0;
-			@include flex(row, no-wrap, space-between, center);
-			.site-branding {
-				@include debug;
-				width: 80%
+			@include debug;
+		}
+	}
+	#primary-menu, #secondary-menu, .mbl-navigation {
+		display: none;
+		overflow: hidden;
+	}
+	.mbl-navigation.active {
+		display: block;
+		background-color: pink;
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.site-header {
+		.primary {
+			.site-branding, .main-navigation {
+				width: 50%;
+				display: block;
 			}
-			.main-navigation {
-				@include debug;
-				width: 20%;
+			.mbl-menu {
+				display: none;
 			}
+		}
+		#primary-menu, #secondary-menu {
+			display: block;
+			@include debug;
+			@include flex(row, no-wrap, flex-end, center);
 		}
 	}
 }

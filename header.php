@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'speakout_s' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="wrapper">
+		<div class="primary">
 			<div class="row">
 				<div class="site-branding">
 					<?php
@@ -44,11 +44,22 @@
 				</div><!-- .site-branding -->
 
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'speakout_s' ); ?></button>
+					<button class="mbl-menu">menu</button>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 				</nav><!-- #site-navigation -->
 			</div>
 		</div>
+		<div class="secondary">
+			<div class="row">
+				<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'secondary-menu' ) ); ?>
+			</div>
+		</div>
+
+		<div class="mbl-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'mbl-primary-menu' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'mbl-secondary-menu' ) ); ?>
+		</div>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

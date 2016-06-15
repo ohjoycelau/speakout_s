@@ -87,9 +87,17 @@ add_action( 'after_setup_theme', 'speakout_s_content_width', 0 );
 
 
 /**
- * Custom Post Type.
+ * Hide Default Post Type.
  */
-function speakout_s_post_type() {
+add_action('admin_menu','remove_default_post_type');
+function remove_default_post_type() {
+	remove_menu_page('edit.php');
+}
+
+/**
+ * Custom Post Type Service.
+ */
+function speakout_s_post_type_service() {
 	register_post_type( 'service',
 		array(
 			'labels' => array(
@@ -103,110 +111,51 @@ function speakout_s_post_type() {
 			'supports' => array( 'title', 'thumbnail', 'revisions' ),
 			'menu_position' => 2,
 			'taxonomies' => array('post_tag'),
+			'can_export' => true,
+			'query_var' => true,
 		)
 	);
 }
-add_action( 'init', 'speakout_s_post_type' );
-
-
-
-add_action('admin_menu','remove_default_post_type');
-function remove_default_post_type() {
-	remove_menu_page('edit.php');
-}  
-
-
-
-
-
-
-
-
+add_action( 'init', 'speakout_s_post_type_service' );
 
 
 /**
- * Custom Post Type.
+ * Custom Post Type Masterclass.
  */
-function speakout_s_custom_post_type() {
-	register_post_type( 'learn',
+function speakout_s_post_type_masterclass() {
+	register_post_type( 'masterclass',
 		array(
 			'labels' => array(
-				'name' => __( 'Learning' ),
-				'singular_name' => __( 'Learn' ),
-				'menu_name' => __( 'Learning' ),
-				'add_new_item' => __( 'Add New Learning' ),
+				'name' => __( 'Masterclasses' ),
+				'singular_name' => __( 'Masterclass' ),
+				'menu_name' => __( 'Masterclasses' ),
+				'add_new_item' => __( 'Add New Masterclass' ),
 			),
 			'public' => true,
 			'has_archive' => false,
-			'supports' => array( 'title', 'thumbnail', 'revisions' ),
+			'supports' => array( 'title', 'revisions' ),
 			'menu_position' => 3,
 			'taxonomies' => array('post_tag'),
+			'can_export' => true,
+			'query_var' => true,
 		)
 	);
 }
-add_action( 'init', 'speakout_s_custom_post_type' );
+add_action( 'init', 'speakout_s_post_type_masterclass' );
 
 
 
-/* Define the custom box */
-add_action( 'add_meta_boxes', 'approach_add_custom_box' );
+// Show posts of 'post', 'page' and 'movie' post types on home page
+add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
-/* Do something with the data entered */
-add_action( 'save_post', 'approach_save_postdata' );
-
-/* Adds a box to the main column on the Post and Page edit screens */
-function approach_add_custom_box() {
-  add_meta_box( 'wp_editor_approach_box', 'Approach', 'wp_editor_meta_box', 'learn', 'normal', 'high' );
+function add_my_post_types_to_query( $query ) {
+  if ( is_home() && $query->is_main_query() )
+    $query->set( 'post_type', array( 'service' ) );
+  return $query;
 }
 
-/* Prints the box content */
-function wp_editor_meta_box( $post ) {
 
-  // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'approach_noncename' );
 
-  $field_value = get_post_meta( $post->ID, '_wp_editor_approach', false );
-
-  $args = array (
-        'tinymce' => true,
-        'quicktags' => true,
-        'media_buttons' => false,
-        'textarea_rows' => 10,
-  );
-  wp_editor( $field_value[0], '_wp_editor_approach', $args );
-}
-
-/* When the post is saved, saves our custom data */
-function approach_save_postdata( $post_id ) {
-
-  // verify if this is an auto save routine. 
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
-
-  // verify this came from the our screen and with proper authorization,
-  // because save_post can be triggered at other times
-  if ( ( isset ( $_POST['approach_noncename'] ) ) && ( ! wp_verify_nonce( $_POST['approach_noncename'], plugin_basename( __FILE__ ) ) ) )
-      return;
-
-  // Check permissions
-  if ( ( isset ( $_POST['post_type'] ) ) && ( 'page' == $_POST['post_type'] )  ) {
-    if ( ! current_user_can( 'edit_page', $post_id ) ) {
-      return;
-    }    
-  }
-  else {
-    if ( ! current_user_can( 'edit_post', $post_id ) ) {
-      return;
-    }
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-  if ( isset ( $_POST['_wp_editor_approach'] ) ) {
-    update_post_meta( $post_id, '_wp_editor_approach', $_POST['_wp_editor_approach'] );
-  }
-
-}
 
 
 
