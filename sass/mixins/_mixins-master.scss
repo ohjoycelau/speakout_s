@@ -22,3 +22,25 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+// Flex display
+@mixin flex($direction, $wrap, $justify, $align) {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: $direction;
+	-webkit-flex-direction: $direction;
+	flex-wrap: $wrap;
+	-webkit-flex-wrap: $wrap;
+	justify-content: $justify;
+	-webkit-justify-content: $justify;
+	align-items: $align;
+	-webkit-align-items: $align;
+}
+
+// QA TEMP
+@mixin debug {
+	background-color: rgba(255, 0, 0, 0.25);
+}

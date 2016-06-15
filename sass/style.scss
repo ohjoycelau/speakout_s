@@ -1,5 +1,5 @@
 /*!
-Theme Name: _s
+Theme Name: speakout_s
 Theme URI: http://underscores.me/
 Author: Automattic
 Author URI: http://automattic.com/
@@ -7,7 +7,7 @@ Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores<
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _s
+Text Domain: speakout_s
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
@@ -33,6 +33,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Accessibility
 # Alignments
 # Clearings
+# Header
 # Widgets
 # Content
     ## Posts and pages
@@ -84,6 +85,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Clearings
 --------------------------------------------------------------*/
 @import "modules/clearings";
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+@import "layout/header";
 
 /*--------------------------------------------------------------
 # Widgets

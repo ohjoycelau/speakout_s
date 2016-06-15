@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package _s
+ * @package speakout_s
  */
 
 get_header(); ?>

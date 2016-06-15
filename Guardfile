@@ -23,4 +23,4 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard 'sass', :input => 'sass', :output => 'css'
+guard 'sass', :input => 'sass', :output => '.'
