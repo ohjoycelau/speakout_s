@@ -221,6 +221,7 @@ th {
   padding: 0; }
 
 .no-scroll {
+  max-height: 100vh;
   overflow: hidden; }
 
 /*--------------------------------------------------------------
@@ -445,6 +446,13 @@ a {
   margin: 0;
   padding: 0;
   list-style: none; }
+.site-header .mbl-navigation {
+  padding: 5%; }
+  .site-header .mbl-navigation li {
+    padding: .5em 0; }
+.site-header.active {
+  height: 100vh;
+  overflow: scroll; }
 
 .site-footer ul {
   margin: 0;

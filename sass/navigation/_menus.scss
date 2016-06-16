@@ -4,6 +4,16 @@
 		padding: 0;
 		list-style: none;
 	}
+	.mbl-navigation {
+		padding: 5%;
+		li {
+			padding: .5em 0;
+		}
+	}
+	&.active {
+		height: 100vh;
+		overflow: scroll;
+	}
 }
 
 .site-footer {

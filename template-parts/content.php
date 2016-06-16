@@ -29,13 +29,20 @@
 	<div class="entry-content">
 		<?php
 
-			the_field('excerpt');
+			// the_field('excerpt');
+
+			if ( the_field('approach') ) {
+				?>Approach<?php
+				the_field('approach');
+			}
+
+			if ( the_field('credentials') ) {
+				?>Credentials<?php
+				the_field('credentials');
+			}
 			
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'speakout_s' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+
+
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),

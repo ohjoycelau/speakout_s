@@ -86,6 +86,12 @@ add_action( 'after_setup_theme', 'speakout_s_content_width', 0 );
 
 
 
+
+
+
+
+
+
 /**
  * Hide Default Post Type.
  */
@@ -101,15 +107,25 @@ function speakout_s_post_type_service() {
 	register_post_type( 'service',
 		array(
 			'labels' => array(
-				'name' => __( 'Services' ),
-				'singular_name' => __( 'Service' ),
-				'menu_name' => __( 'Services' ),
-				'add_new_item' => __( 'Add New Service' ),
+				'name'               => __( 'Services' ),
+				'singular_name'      => __( 'Service' ),
+				'menu_name'          => __( 'Services' ),
+				'name_admin_bar'     => __( 'Services' ),
+				'add_new'            => __( 'Add New' ),
+				'add_new_item'       => __( 'Add New Service' ),
+				'edit_item'          => __( 'Edit Service' ),
+				'new_item'           => __( 'New Service' ),
+				'view_item'          => __( 'View Service' ),
+				'search_items'       => __( 'Search Services' ),
+				'not_found'          => __( 'No examples found' ),
+				'not_found_in_trash' => __( 'No examples found in trash' ),
+				'all_items'          => __( 'All Services' ),
 			),
 			'public' => true,
 			'has_archive' => false,
+			'menu_position' => 3,
+			'menu_icon' => 'dashicons-index-card',
 			'supports' => array( 'title', 'thumbnail', 'revisions' ),
-			'menu_position' => 2,
 			'taxonomies' => array('post_tag'),
 			'can_export' => true,
 			'query_var' => true,
@@ -126,15 +142,25 @@ function speakout_s_post_type_masterclass() {
 	register_post_type( 'masterclass',
 		array(
 			'labels' => array(
-				'name' => __( 'Masterclasses' ),
-				'singular_name' => __( 'Masterclass' ),
-				'menu_name' => __( 'Masterclasses' ),
-				'add_new_item' => __( 'Add New Masterclass' ),
+				'name'               => __( 'Masterclasses' ),
+				'singular_name'      => __( 'Masterclass' ),
+				'menu_name'          => __( 'Masterclasses' ),
+				'name_admin_bar'     => __( 'Masterclasses' ),
+				'add_new'            => __( 'Add New' ),
+				'add_new_item'       => __( 'Add New Masterclass' ),
+				'edit_item'          => __( 'Edit Masterclass' ),
+				'new_item'           => __( 'New Masterclass' ),
+				'view_item'          => __( 'View Masterclass' ),
+				'search_items'       => __( 'Search Masterclasses' ),
+				'not_found'          => __( 'No examples found' ),
+				'not_found_in_trash' => __( 'No examples found in trash' ),
+				'all_items'          => __( 'All Masterclasses' ),
 			),
 			'public' => true,
 			'has_archive' => false,
+			'menu_position' => 4,
+			'menu_icon' => 'dashicons-welcome-learn-more',
 			'supports' => array( 'title', 'revisions' ),
-			'menu_position' => 3,
 			'taxonomies' => array('post_tag'),
 			'can_export' => true,
 			'query_var' => true,
@@ -142,6 +168,41 @@ function speakout_s_post_type_masterclass() {
 	);
 }
 add_action( 'init', 'speakout_s_post_type_masterclass' );
+
+
+/**
+ * Custom Post Type Service.
+ */
+function speakout_s_post_type_example() {
+	register_post_type( 'example',
+		array(
+			'labels' => array(
+				'name'               => __( 'Examples' ),
+				'singular_name'      => __( 'Example' ),
+				'menu_name'          => __( 'Examples' ),
+				'name_admin_bar'     => __( 'Examples' ),
+				'add_new'            => __( 'Add New' ),
+				'add_new_item'       => __( 'Add New Example' ),
+				'edit_item'          => __( 'Edit Example' ),
+				'new_item'           => __( 'New Example' ),
+				'view_item'          => __( 'View Example' ),
+				'search_items'       => __( 'Search Examples' ),
+				'not_found'          => __( 'No examples found' ),
+				'not_found_in_trash' => __( 'No examples found in trash' ),
+				'all_items'          => __( 'All Examples' ),
+			),
+			'public' => true,
+			'has_archive' => false,
+			'menu_position' => 2,
+			'menu_icon' => 'dashicons-format-aside',
+			'supports' => array( 'title', 'thumbnail', 'revisions' ),
+			'taxonomies' => array('post_tag'),
+			'can_export' => true,
+			'query_var' => true,
+		)
+	);
+}
+add_action( 'init', 'speakout_s_post_type_example' );
 
 
 
@@ -153,6 +214,7 @@ function add_my_post_types_to_query( $query ) {
     $query->set( 'post_type', array( 'service' ) );
   return $query;
 }
+
 
 
 

@@ -5,6 +5,9 @@
  * navigation support for dropdown menus.
  */
 ( function() {
+
+	$( ".site-header" ).sticky();
+
 	var overlay, mblMenu;
 
 	overlay = $( '.mbl-navigation' );
@@ -17,9 +20,20 @@
 		return;
 	}
 
-	mblMenu.click( function(){
+	mblMenu.click( function() {
 		$( "body" ).toggleClass( 'no-scroll' );
+		$( ".site-header" ).toggleClass( 'active' );
 		overlay.toggleClass( 'active' );
+		// $(".site-header").unstick();
+	} );
+
+	$( window ).resize( function() {
+		var width = $( window ).innerWidth();
+		if ( width > 768 && overlay.hasClass( 'active' ) ) {
+			$( "body" ).removeClass( 'no-scroll' );
+			$( ".site-header" ).removeClass( 'active' );
+			overlay.removeClass( 'active' );
+		}
 	} );
 
 } )();
