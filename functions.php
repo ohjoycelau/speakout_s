@@ -8,6 +8,7 @@
  */
 
 require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
+require_once( __DIR__ . '/plugins/acf-repeater/acf-repeater.php' );
 
 if ( ! function_exists( 'speakout_s_setup' ) ) :
 /**

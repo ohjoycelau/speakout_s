@@ -9,6 +9,26 @@
 
 ?>
 
+<div class="service-header">
+	<ul class="debug">
+		<?php
+
+			if ( get_field( 'service_repeater' ) ) :
+
+				while ( has_sub_field( 'service_repeater' ) ) : 
+
+					$section_title = the_sub_field( 'section_title' ); ?>
+
+					<li><a href="#<?php echo $section_title ?>"><?php echo $section_title ?></a></li>
+
+				<?php endwhile;
+
+			endif;
+
+		?>
+	</ul>
+</div>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -29,13 +49,21 @@
 	<div class="entry-content">
 		<?php
 
+			if ( get_field( 'service_repeater' ) ) : ?>
 
-			if ( the_field('approach') ) {
-				?>Approach<?php
-				the_field('approach');
-			}
+				<ul>
 
+				<?php while ( has_sub_field( 'service_repeater' ) ) : ?>
 
+					<li><?php the_sub_field( 'section_title' ); ?></li>
+					<li><?php>the_sub_field( 'section_content' ); ?></li>
+					<li><?php>the_sub_field( 'section_type' ); ?></li>
+			
+				<?php endwhile; ?>
+
+				</ul>
+
+			<?php endif;
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),
