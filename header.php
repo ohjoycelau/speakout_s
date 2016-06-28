@@ -51,7 +51,27 @@
 		</div>
 		<div class="secondary">
 			<div class="row">
-				<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'secondary-menu' ) ); ?>
+				<div class="menus">
+					<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'secondary-menu' ) ); ?>
+				
+					<?php if ( is_singular( 'service' ) ) { ?>
+
+						<ul class="service-menu debug">
+							
+							<?php if ( get_field( 'service_repeater' ) ) :
+								while ( has_sub_field( 'service_repeater' ) ) : ?>
+									<li><a href="#<?php the_sub_field( 'section_title' ) ?>"><?php the_sub_field( 'section_title' ) ?></a></li>
+								<?php endwhile; ?>
+							<?php endif; ?>
+
+							<?php if ( get_field( 'testimonials_repeater' ) ) : ?>
+								<li><a href="#testimonials">Testimonials</a></li>
+							<?php endif; ?>
+
+						</ul>
+
+					<?php } ?>
+				</div>
 			</div>
 		</div>
 
@@ -59,6 +79,7 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'mbl-primary-menu' ) ); ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'mbl-secondary-menu' ) ); ?>
 		</div>
+
 
 	</header><!-- #masthead -->
 

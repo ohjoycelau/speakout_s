@@ -1,3 +1,7 @@
+.is-sticky {
+	position: relative;
+	z-index: 9999;
+}
 .site-header {
 	.menu {
 		margin: 0;
@@ -13,6 +17,7 @@
 	&.active {
 		height: 100vh;
 		overflow: scroll;
+		background-color: blue;
 	}
 }
 

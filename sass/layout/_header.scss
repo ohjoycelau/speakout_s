@@ -25,6 +25,12 @@
 		background-color: green;
 		.row {
 			@include debug;
+			.menus {
+				width: 100%
+			}
+			.service-menu {
+				margin: 0;
+			}
 		}
 	}
 	#primary-menu, #secondary-menu, .mbl-navigation {
@@ -35,7 +41,6 @@
 		display: block;
 		background-color: pink;
 		width: 100vw;
-		height: 100vh;
 	}
 }
 
@@ -49,6 +54,9 @@
 			.mbl-menu {
 				display: none;
 			}
+		}
+		.secondary .row .menus {
+			width: auto;
 		}
 		#primary-menu, #secondary-menu {
 			display: block;

@@ -11,13 +11,14 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		<h1>single-service.php</h1>
+		<h1>single-masterclass.php</h1>
 
 		<?php
 
 		while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', 'service' );
+
+			get_template_part( 'template-parts/content', 'masterclass' );
 
 			the_post_navigation();
 
@@ -31,6 +32,16 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+
+	<div class="debug">
+		<h1>Register and add widget area</h1>
+		<?php if ( is_active_sidebar( 'mc_sidebar' ) ) : ?>
+			<div id="mc-sidebar" clas="mc-sidebar widget-area" role="complementary" >
+				<?php dynamic_sidebar( 'mc_sidebar' ); ?>
+			</div>
+		<?php endif; ?>
+	</div>
 
 <?php
 get_sidebar();

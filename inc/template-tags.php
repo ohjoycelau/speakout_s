@@ -54,6 +54,28 @@ function speakout_s_posted_on() {
 }
 endif;
 
+
+
+if ( ! function_exists( 'showBeforeMore' ) ) :
+/**
+ * Hides.
+ */
+function showBeforeMore( $fullText ) {
+    if( @strpos( $fullText, '<!--more-->' ) ) {
+        $morePos = strpos( $fullText, '<!--more-->' );
+        print substr( $fullText, 0, $morePos );
+        print "<span class=\"read-more\"><a href=\"". get_post_permalink() . "\" class=\"read-more-link\">Read More</a></span>";
+    } else {
+        print $fullText;
+    }
+}
+
+endif;
+
+
+
+
+
 if ( ! function_exists( 'speakout_s_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.

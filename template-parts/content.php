@@ -27,16 +27,11 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php the_post_thumbnail( $size, $attr ); ?>
+		<?php if ( get_field( 'excerpt' ) ) : ?>
+			<?php the_field( 'excerpt' ); ?>
+		<?php endif; ?>
 		<?php
-
-
-			if ( the_field('approach') ) {
-				?>Approach<?php
-				the_field('approach');
-			}
-
-
-
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),
 				'after'  => '</div>',

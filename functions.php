@@ -9,6 +9,10 @@
 
 require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
 require_once( __DIR__ . '/plugins/acf-repeater/acf-repeater.php' );
+// require_once( __DIR__ . '/plugins/advanced-custom-fields/core/local.php' );
+
+// define( 'ACF_LITE', true );
+
 
 if ( ! function_exists( 'speakout_s_setup' ) ) :
 /**
@@ -93,6 +97,7 @@ add_action( 'after_setup_theme', 'speakout_s_content_width', 0 );
 
 
 
+
 /**
  * Hide Default Post Type.
  */
@@ -127,13 +132,25 @@ function speakout_s_post_type_service() {
 			'menu_position' => 3,
 			'menu_icon' => 'dashicons-index-card',
 			'supports' => array( 'title', 'thumbnail', 'revisions' ),
-			'taxonomies' => array('post_tag'),
 			'can_export' => true,
 			'query_var' => true,
 		)
 	);
+	flush_rewrite_rules();
 }
 add_action( 'init', 'speakout_s_post_type_service' );
+
+
+// Show posts of 'service' post types on home page.
+if ( ! function_exists( 'speakout_s_main_query' ) ) :
+	function speakout_s_main_query( $query ) {
+	  if ( is_home() && $query->is_main_query() )
+	    $query->set( 'post_type', array( 'service' ) );
+	  return $query;
+	}
+endif;
+add_action( 'pre_get_posts', 'speakout_s_main_query' );
+
 
 
 /**
@@ -158,21 +175,39 @@ function speakout_s_post_type_masterclass() {
 				'all_items'          => __( 'All Masterclasses' ),
 			),
 			'public' => true,
-			'has_archive' => false,
+			'has_archive' => true,
 			'menu_position' => 4,
 			'menu_icon' => 'dashicons-welcome-learn-more',
 			'supports' => array( 'title', 'revisions' ),
-			'taxonomies' => array('post_tag'),
 			'can_export' => true,
 			'query_var' => true,
 		)
 	);
+	flush_rewrite_rules();
 }
 add_action( 'init', 'speakout_s_post_type_masterclass' );
 
+/**
+ * Register Masterclass page template widget area.
+ */
+if ( ! function_exists( 'mc_widgets_init' ) ) :
+	function mc_widgets_init() {
+		register_sidebar( array(
+			'name'			=> 'Masterclass Sidebar',
+			'id'			=> 'mc_sidebar',
+			'before_widget'	=> '<div>',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3 class="widget_title">',
+			'after_title'	=> '</h3>',
+		) );
+	}
+endif;
+add_action( 'widgets_init', 'mc_widgets_init' );
+
+
 
 /**
- * Custom Post Type Service.
+ * Custom Post Type Example.
  */
 function speakout_s_post_type_example() {
 	register_post_type( 'example',
@@ -202,19 +237,15 @@ function speakout_s_post_type_example() {
 			'query_var' => true,
 		)
 	);
+	flush_rewrite_rules();
 }
 add_action( 'init', 'speakout_s_post_type_example' );
 
 
 
-// Show posts of 'post', 'page' and 'movie' post types on home page
-add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
-function add_my_post_types_to_query( $query ) {
-  if ( is_home() && $query->is_main_query() )
-    $query->set( 'post_type', array( 'service' ) );
-  return $query;
-}
+
+
 
 
 
@@ -237,6 +268,7 @@ function speakout_s_scripts() {
 
 	wp_enqueue_script( 'speakout_s-jquery', get_template_directory_uri() . '/js/jquery-1.9.1.min.js', array(), '1.9.1', true );
 	wp_enqueue_script( 'speakout_s-sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array(), '1.0', true );
+	wp_enqueue_script( 'speakout_s-iosslider', get_template_directory_uri() . '/js/jquery.iosslider.min.js', array(), '1.3.16', true );
 	wp_enqueue_script( 'speakout_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'speakout_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_script( 'speakout_s-functions', get_template_directory_uri() . '/js/functions.js', array(), '1.0', true );

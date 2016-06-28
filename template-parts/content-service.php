@@ -9,27 +9,8 @@
 
 ?>
 
-<div class="service-header">
-	<ul class="debug">
-		<?php
-
-			if ( get_field( 'service_repeater' ) ) :
-
-				while ( has_sub_field( 'service_repeater' ) ) : 
-
-					$section_title = the_sub_field( 'section_title' ); ?>
-
-					<li><a href="#<?php echo $section_title ?>"><?php echo $section_title ?></a></li>
-
-				<?php endwhile;
-
-			endif;
-
-		?>
-	</ul>
-</div>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<h1>content-service.php</h1>
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) {
@@ -47,29 +28,48 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
+			<?php
 
-			if ( get_field( 'service_repeater' ) ) : ?>
+				if ( get_field( 'service_repeater' ) ) : ?>
+					<?php while ( has_sub_field( 'service_repeater' ) ) : ?>
 
-				<ul>
+						<div class="service <?php the_sub_field( 'section_title' ); ?> <?php the_sub_field( 'section_type' ); ?>">
+							<h2 class="title"><?php the_sub_field( 'section_title' ); ?></h2>
+							<div class="content"><?php the_sub_field( 'section_content' ); ?></div>
+						</div>
 
-				<?php while ( has_sub_field( 'service_repeater' ) ) : ?>
+					<?php endwhile;
+				endif;
 
-					<li><?php the_sub_field( 'section_title' ); ?></li>
-					<li><?php>the_sub_field( 'section_content' ); ?></li>
-					<li><?php>the_sub_field( 'section_type' ); ?></li>
-			
-				<?php endwhile; ?>
+				if ( get_field( 'testimonials_repeater' ) ) : ?>
+					<div class="testimonials">
+						<h2>Testimonials</h2>
+						<div class="iosslider">
+							<div class="slider">
+								<?php while ( has_sub_field( 'testimonials_repeater') ) : ?>
 
-				</ul>
+									<div class="slide"><div class="testimonial">
+										<p><?php the_sub_field( 'testimonial' ); ?></p>
+										<p><a href="<?php the_sub_field( 'link' ); ?>" target="blank"><?php the_sub_field( 'name' ); ?></a></p>
+									</div></div>
 
-			<?php endif;
+								<?php endwhile; ?>
+							</div><!--slider end-->
+						</div><!--iosslider end-->
+						<div class="iosslider-navigation">
+							<?php while ( has_sub_field( 'testimonials_repeater') ) : ?>
+								<div class="dot"></div>
+							<?php endwhile; ?>
+						</div>
+					</div><!--testimonials end-->
+				<?php endif;
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),
-				'after'  => '</div>',
-			) );
-		?>
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),
+					'after'  => '</div>',
+				) );
+			?>
+
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
