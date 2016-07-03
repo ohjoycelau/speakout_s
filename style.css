@@ -227,6 +227,10 @@ th {
   max-height: 100vh;
   overflow: hidden; }
 
+*:focus {
+  outline: 0;
+  outline: none; }
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -613,7 +617,22 @@ a {
       .site-header .secondary .row .menus {
         width: 100%; }
       .site-header .secondary .row .service-menu {
-        margin: 0; }
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-wrap: no-wrap;
+        -webkit-flex-wrap: no-wrap;
+        justify-content: flex-start;
+        -webkit-justify-content: flex-start;
+        align-items: center;
+        -webkit-align-items: center; }
   .site-header #primary-menu, .site-header #secondary-menu, .site-header .mbl-navigation {
     display: none;
     overflow: hidden; }

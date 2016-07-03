@@ -65,15 +65,23 @@ function speakout_s_setup() {
 		'gallery',
 		'caption',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'speakout_s_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 }
 endif;
 add_action( 'after_setup_theme', 'speakout_s_setup' );
+
+/**
+ * Remove theme support from default admin Wordpress features.
+ * 
+ * Reference https://codex.wordpress.org/Function_Reference/remove_theme_support.
+ */
+function speakout_s_remove_theme_support() {
+	remove_theme_support( 'custom-background' );
+	remove_theme_support( 'custom-header' );
+	remove_theme_support( 'post-formats' );
+}
+add_action( 'after_setup_theme', 'speakout_s_remove_theme_support', 11 );
+
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

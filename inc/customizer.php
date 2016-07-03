@@ -13,7 +13,49 @@
 function speakout_s_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+
+	$wp_customize->add_setting( 'header_color_setting', array(
+		'default'		=> '#8A0F3E',
+	) );
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'header_color',
+			array(
+				'label'		=> __( 'Header Color', 'speakout_s' ),
+				'section'	=> 'colors',
+				'settings'	=> 'header_color_setting',
+			) )
+	);
+
+	$wp_customize->add_setting( 'link_color_setting', array(
+		'default'		=> '#BE204D',
+	) );
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_color',
+			array(
+				'label'		=> __( 'Link Color', 'speakout_s' ),
+				'section'	=> 'colors',
+				'settings'	=> 'link_color_setting',
+			) )
+	);
+
+	$wp_customize->add_setting( 'footer_color_setting', array(
+		'default'		=> '#4A4A4A',
+	) );
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'footer_color',
+			array(
+				'label'		=> __( 'Footer Color', 'speakout_s' ),
+				'section'	=> 'colors',
+				'settings'	=> 'footer_color_setting',
+			) )
+	);
 }
 add_action( 'customize_register', 'speakout_s_customize_register' );
 
