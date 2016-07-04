@@ -14,9 +14,9 @@ function speakout_s_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
-
 	$wp_customize->add_setting( 'header_color_setting', array(
 		'default'		=> '#8A0F3E',
+		'transport'		=> 'postMessage',
 	) );
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
@@ -31,6 +31,7 @@ function speakout_s_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'link_color_setting', array(
 		'default'		=> '#BE204D',
+		'transport'		=> 'postMessage',
 	) );
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
@@ -45,6 +46,7 @@ function speakout_s_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'footer_color_setting', array(
 		'default'		=> '#4A4A4A',
+		'transport'		=> 'postMessage',
 	) );
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
@@ -66,3 +68,27 @@ function speakout_s_customize_preview_js() {
 	wp_enqueue_script( 'speakout_s_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'speakout_s_customize_preview_js' );
+
+
+$headerColor = get_theme_mod( 'header_color_setting', '#8A0F3E' );
+$linkColor = get_theme_mod( 'link_color_setting', '#BE204D' );
+$footerColor = get_theme_mod( 'footer_color_setting', '#4A4A4A' );
+
+?>
+
+<style>
+	.site-header .primary#primary-header {
+		background-color: <?php echo $headerColor; ?> !important;
+	}
+	.site-header .secondary #secondary-menu {
+		background-color: <?php echo $linkColor; ?> !important;
+	}
+	.site-footer {
+		background-color: <?php echo $footerColor; ?> !important;
+	}
+</style>
+
+<?php
+
+
+

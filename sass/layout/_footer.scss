@@ -1,10 +1,14 @@
 .site-footer{
-	background-color: teal;
 	.site-info {
-		@include debug;
 		.row {
 			width: $size__site-width;
 			margin: 0 auto;
 		}
+	}
+}
+
+@media screen and ( min-width: $size__site-maxwidth ) {
+	.site-footer .site-info .row {
+		max-width: $size__site-maxwidth;
 	}
 }
