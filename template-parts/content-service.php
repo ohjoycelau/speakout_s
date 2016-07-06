@@ -33,7 +33,7 @@
 				if ( get_field( 'service_repeater' ) ) : ?>
 					<?php while ( has_sub_field( 'service_repeater' ) ) : ?>
 
-						<div class="service <?php the_sub_field( 'section_title' ); ?> <?php the_sub_field( 'section_type' ); ?>" id="<?php the_sub_field( 'section_title' ) ?>">
+						<div class="entry-section service <?php the_sub_field( 'section_title' ); ?> <?php the_sub_field( 'section_type' ); ?>" id="<?php the_sub_field( 'section_title' ) ?>">
 							<h2 class="title"><?php the_sub_field( 'section_title' ); ?></h2>
 							<div class="content"><?php the_sub_field( 'section_content' ); ?></div>
 						</div>
@@ -42,7 +42,7 @@
 				endif;
 
 				if ( get_field( 'testimonials_repeater' ) ) : ?>
-					<div class="Testimonials" id="Testimonials">
+					<div class="entry-section testimonials" id="testimonials">
 						<h2>Testimonials</h2>
 						<div class="iosslider">
 							<div class="slider">

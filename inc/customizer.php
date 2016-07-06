@@ -66,3 +66,27 @@ function speakout_s_customize_preview_js() {
 	wp_enqueue_script( 'speakout_s_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'speakout_s_customize_preview_js' );
+
+
+if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
+	function speakout_s_customizer_css() {
+		$headerColor = get_theme_mod( 'header_color_setting', '#8A0F3E' );
+		$linkColor = get_theme_mod( 'link_color_setting', '#BE204D' );
+		$footerColor = get_theme_mod( 'footer_color_setting', '#4A4A4A' );
+
+		?><style type="text/css">
+
+			.site-header .primary#primary-header {
+				background-color: <?php echo esc_html( $headerColor ); ?>;
+			}
+			.site-header .secondary #secondary-menu {
+				background-color: <?php echo esc_html( $linkColor ); ?>;
+			}
+			.site-footer {
+				background-color: <?php echo esc_html( $footerColor ); ?>;
+			}
+
+		</style><?php
+	}
+endif;
+add_action( 'wp_head', 'speakout_s_customizer_css');

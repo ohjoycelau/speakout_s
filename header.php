@@ -25,7 +25,8 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'speakout_s' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="primary">
+	<div class="header-wrapper">
+		<div class="primary" id="primary-header">
 			<div class="row">
 				<div class="site-branding">
 					<?php
@@ -56,7 +57,7 @@
 				
 					<?php if ( is_singular( 'service' ) ) { ?>
 
-						<ul class="service-menu debug">
+						<ul class="service-menu menu">
 							
 							<?php if ( get_field( 'service_repeater' ) ) :
 								while ( has_sub_field( 'service_repeater' ) ) : ?>
@@ -80,7 +81,7 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'mbl-secondary-menu' ) ); ?>
 		</div>
 
-
+	</div><!-- .header-wrapper -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
