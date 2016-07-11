@@ -2,7 +2,6 @@
 	width: $size__site-width;
 	margin: 0 auto;
 }
-<<<<<<< HEAD
 .entry-section:not(:last-child)::after {
 	height: 1px;
 	width: 120vw;
@@ -13,8 +12,6 @@
 	margin-top: 5em;
 	margin-bottom: 4em;
 }
-=======
->>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 @media screen and ( min-width: $size__site-maxwidth ) {
 	.site-content {
 		max-width: $size__site-maxwidth;
