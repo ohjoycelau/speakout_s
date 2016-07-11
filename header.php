@@ -57,7 +57,11 @@
 				
 					<?php if ( is_singular( 'service' ) ) { ?>
 
+<<<<<<< HEAD
 						<ul class="service-menu menu">
+=======
+						<ul class="service-menu menu debug">
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 							
 							<?php if ( get_field( 'service_repeater' ) ) :
 								while ( has_sub_field( 'service_repeater' ) ) : ?>

@@ -7,7 +7,12 @@
 	.row {
 		width: $size__site-width;
 		margin: 0 auto;
+<<<<<<< HEAD
 		@include flex(row, no-wrap, flex-end, center);
+=======
+		// padding: 1px 0;
+		@include flex( row, no-wrap, flex-end, center );
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 	}
 	.primary {
 		.site-branding {
@@ -21,17 +26,23 @@
 		}
 	}
 	.secondary {
+<<<<<<< HEAD
 		background-color: #FFFFFF;
 		border: 1px solid #efefef;
+=======
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 		.row {
 			.menus {
 				width: 100%
 			}
 			.service-menu {
+<<<<<<< HEAD
 				box-sizing: border-box;
 				moz-box-sizing: border-box;
+=======
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 				list-style: none;
-				@include flex(row, no-wrap, flex-start, center);
+				@include flex( row, no-wrap, flex-start, center );
 			}
 		}
 	}
@@ -41,6 +52,10 @@
 	}
 	.mbl-navigation.active {
 		display: block;
+<<<<<<< HEAD
+=======
+		// background-color: #FFFFFF;
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 		width: 100vw;
 	}
 }
@@ -80,7 +95,15 @@
 		}
 		#primary-menu, #secondary-menu {
 			display: block;
+<<<<<<< HEAD
 			@include flex(row, no-wrap, flex-end, center);
+=======
+			// @include debug;
+			@include flex( row, no-wrap, flex-end, center );
+		}
+		.primary .row, .secondary .menu {
+			padding: 0 2em;
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 		}
 		.primary .row, .secondary .menu {
 			padding: 0 2em;
@@ -89,7 +112,10 @@
 	}
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d40dc376773113a4b5831fb128fecec6e539d9c
 @media screen and ( min-width: $size__site-maxwidth ) {
 	.site-header .header-wrapper {
 		max-width: $size__site-maxwidth;
