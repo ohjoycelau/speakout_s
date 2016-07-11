@@ -45,6 +45,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic,500|Roboto+Slab:400,300);
 .debug {
   background-color: rgba(255, 0, 0, 0.25); }
 
@@ -241,13 +242,21 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 1.5; }
+  line-height: 1.5;
+  font-weight: 300; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  font-family: 'Roboto Slab', 'Roboto', 'Helvetica', 'Arial', sans-serif; }
+
+h1 {
+  font-weight: 300; }
+
+h2 {
+  font-weight: 400; }
 
 p {
   margin-bottom: 1.5em; }
@@ -856,3 +865,9 @@ object {
   display: inline-block; }
   .iosslider-navigation .dot.active {
     background-color: transparent; }
+
+/*--------------------------------------------------------------
+## Testimonials
+--------------------------------------------------------------*/
+.testimonial {
+  padding: 0 2em; }
