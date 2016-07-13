@@ -15,6 +15,20 @@ function speakout_s_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
 
+	$wp_customize->add_setting( 'background_color_setting', array(
+		'default'		=> '#EFEFEF',
+	) );
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'background_color',
+			array(
+				'label'		=> __( 'Background Color', 'speakout_s' ),
+				'section'	=> 'colors',
+				'settings'	=> 'background_color_setting',
+			) )
+	);
+
 	$wp_customize->add_setting( 'header_color_setting', array(
 		'default'		=> '#8A0F3E',
 	) );
@@ -70,12 +84,15 @@ add_action( 'customize_preview_init', 'speakout_s_customize_preview_js' );
 
 if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 	function speakout_s_customizer_css() {
+		$backgroundColor = get_theme_mod( 'background_color_setting', '#8A0F3E' );
 		$headerColor = get_theme_mod( 'header_color_setting', '#8A0F3E' );
 		$linkColor = get_theme_mod( 'link_color_setting', '#BE204D' );
 		$footerColor = get_theme_mod( 'footer_color_setting', '#4A4A4A' );
 
 		?><style type="text/css">
-
+			body, .site-header.active {
+				background-color: <?php echo esc_html( $backgroundColor ); ?>;
+			}
 			.site-header .primary#primary-header {
 				background-color: <?php echo esc_html( $headerColor ); ?>;
 			}
@@ -84,6 +101,28 @@ if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 			}
 			.site-footer {
 				background-color: <?php echo esc_html( $footerColor ); ?>;
+			}
+
+			a:visited, a:link {
+				color: <?php echo esc_html( $linkColor ); ?>;
+			}
+			a:hover, a:focus, a:active {
+				color: <?php echo esc_html( $headerColor ); ?>;
+			}
+			.service-menu a:link,
+			.service-menu a:visited,
+			.mbl-navigation.active a:link,
+			.mbl-navigation.active a:visited {
+				color: <?php echo esc_html( $linkColor ); ?>;
+			}
+			.service-menu a:hover,
+			.service-menu a:active,
+			.service-menu a:focus,
+			.mbl-navigation.active a:hover,
+			.mbl-navigation.active a:active,
+			.mbl-navigation.active a:focus {
+				color: <?php echo esc_html( $headerColor ); ?>;
+				border-color: <?php echo esc_html( $headerColor ); ?>;
 			}
 
 		</style><?php

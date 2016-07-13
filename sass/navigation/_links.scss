@@ -17,3 +17,29 @@ a {
 		outline: 0;
 	}
 }
+
+.site-header {
+	a {
+		&:link,
+		&:visited,
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+			color: #FFFFFF;
+			font-size: .75em;
+			font-weight: 400;
+			padding-bottom: 0.21em;
+			border-bottom: 0.18em solid transparent;
+
+			opacity: 1;
+		}
+	}
+	a:hover, a:active, a:focus {
+		border-color: #FFFFFF;
+		opacity: 0.8;
+	}
+	.mbl-navigation a {
+		font-size: 1em;
+	}
+}

@@ -45,7 +45,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic,500|Roboto+Slab:400,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic,500|Roboto+Slab:400,300);
 .debug {
   background-color: rgba(255, 0, 0, 0.25); }
 
@@ -246,7 +246,8 @@ textarea {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
-  font-weight: 300; }
+  font-weight: 300;
+  letter-spacing: .015em; }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
@@ -469,6 +470,20 @@ a {
   a:hover, a:active {
     outline: 0; }
 
+.site-header a:link, .site-header a:visited, .site-header a:hover, .site-header a:active, .site-header a:focus {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: .75em;
+  font-weight: 400;
+  padding-bottom: 0.21em;
+  border-bottom: 0.18em solid transparent;
+  opacity: 1; }
+.site-header a:hover, .site-header a:active, .site-header a:focus {
+  border-color: #FFFFFF;
+  opacity: 0.8; }
+.site-header .mbl-navigation a {
+  font-size: 1em; }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -486,8 +501,7 @@ a {
     padding: .5em 0; }
 .site-header.active {
   height: 100vh;
-  overflow: scroll;
-  background-color: blue; }
+  overflow: scroll; }
 
 .site-footer ul {
   margin: 0;
@@ -624,6 +638,12 @@ a {
     -webkit-justify-content: flex-end;
     align-items: center;
     -webkit-align-items: center; }
+  .site-header .primary .menu li, .site-header .secondary .menu li {
+    margin: .25em .8em .45em; }
+    .site-header .primary .menu li:first-of-type, .site-header .secondary .menu li:first-of-type {
+      margin-left: 0; }
+    .site-header .primary .menu li:last-of-type, .site-header .secondary .menu li:last-of-type {
+      margin-right: 0; }
   .site-header .primary .site-branding {
     width: 80%; }
   .site-header .primary .main-navigation {
@@ -658,6 +678,10 @@ a {
   .site-header .mbl-navigation.active {
     display: block;
     width: 100vw; }
+  .site-header .site-branding h1 {
+    font-size: 2.5em;
+    padding: 0;
+    margin: 0; }
 
 .no-scroll .secondary {
   display: none; }
@@ -680,7 +704,7 @@ a {
       width: auto; }
     .site-header .secondary .service-menu {
       background-color: #ffffff;
-      border: 1px solid #f5f5f5;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-top: none; }
   .site-header #primary-menu, .site-header #secondary-menu {
     display: block;

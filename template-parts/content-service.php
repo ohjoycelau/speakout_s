@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<h1>content-service.php</h1>
+<!-- <h1>content-service.php</h1> -->
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) {
