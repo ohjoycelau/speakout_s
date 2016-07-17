@@ -4,9 +4,10 @@
 }
 .entry-section:not(:last-child)::after {
 	height: 1px;
+	// width: 100%;
 	width: 300vw;
 	margin-left: -100vw;
-	background-color: red;
+	// background-color: red;
 	content: "";
 	display: block;
 	margin-top: 5em;

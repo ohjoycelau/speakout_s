@@ -125,6 +125,11 @@ if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 				border-color: <?php echo esc_html( $headerColor ); ?>;
 			}
 
+			.entry-section:not(:last-child)::after {
+				background-color: <?php echo esc_html( $footerColor ); ?>;
+				opacity: 0.075;
+			}
+
 			.slider .accordian h3 {
 				background-color: <?php echo esc_html( $linkColor ); ?>;
 				color: <?php echo esc_html( $backgroundColor ); ?>;
