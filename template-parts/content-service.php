@@ -48,7 +48,7 @@
 								<?php while ( has_sub_field( 'testimonials_repeater') ) : ?>
 
 									<div class="slide"><div class="testimonial">
-										<p><?php the_sub_field( 'testimonial' ); ?></p>
+										<p><i><?php the_sub_field( 'testimonial' ); ?></i></p>
 										<p><a href="<?php the_sub_field( 'link' ); ?>" target="blank"><?php the_sub_field( 'name' ); ?></a></p>
 									</div></div>
 

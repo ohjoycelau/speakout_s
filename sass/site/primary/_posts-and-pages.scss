@@ -71,16 +71,29 @@
 				font-size: 1em;
 				font-weight: 300;
 				cursor: pointer;
+				position: relative;
+				&:after {
+					content: "+";
+					padding-top: .5em;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					padding-right: 2em;
+					text-align: right;
+				}
 			}
-			.active blockquote {
-
-				// max-height: 200vh;
-				// height: 100%;
-				// overflow: auto;
-
-				// -webkit-transition: max-height 2500ms;
-				// transition: max-height 2500ms;
-
+			.active {
+				h3:after {
+					content: "–";
+				}
+				blockquote {
+					// max-height: 200vh;
+					// height: 100%;
+					// overflow: auto;
+					// -webkit-transition: max-height 2500ms;
+					// transition: max-height 2500ms;
+				}
 			}
 		}
 	}
