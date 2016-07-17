@@ -786,7 +786,7 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
-.entry-content .entry-section.quote blockquote {
+.entry-content .entry-section.quote blockquote, .entry-content .entry-section.slider blockquote {
   display: block;
   margin: 1em 0;
   padding: 1em 2em;
@@ -798,8 +798,21 @@ a {
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word; }
-  .entry-content .entry-section.quote blockquote a {
+  .entry-content .entry-section.quote blockquote a, .entry-content .entry-section.slider blockquote a {
     font-weight: 400; }
+.entry-content .entry-section.slider blockquote {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em; }
+  .entry-content .entry-section.slider blockquote .inner {
+    padding: 1em 2em; }
+.entry-content .entry-section.slider h3 {
+  display: block;
+  margin: 0;
+  padding: .5em 2em;
+  font-size: 1em;
+  font-weight: 300;
+  cursor: pointer; }
 
 /*--------------------------------------------------------------
 ## Comments

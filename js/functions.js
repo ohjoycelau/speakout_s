@@ -1,9 +1,25 @@
 ( function() {
 	$( document ).ready( function(){
 		
+		// Set up Services accordian
+
+		$( ".slider blockquote" ).each( function(){
+			$( this ).wrap( "<div class='accordian'></div>" );
+			$( this ).wrapInner("<div class='inner'></div>");
+			$( this ).find( "h3" ).insertBefore( $(this) );
+			$( this ).hide();
+		});
+		$( ".slider h3" ).on( "click", function() {
+			$( this ).parent().toggleClass( "active" );
+			$( this ).next().slideToggle();
+		} );
+
+
+		// Set up Testimonials iosSlider
+
 		console.log( "iosslider ready" );
 
-		$( '.iosslider' ).iosSlider( {
+		$( ".iosslider" ).iosSlider( {
 			snapToChildren: true,
 			desktopClickDrag: true,
 			infiniteSlider: true,

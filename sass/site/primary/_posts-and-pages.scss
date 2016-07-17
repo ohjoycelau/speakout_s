@@ -29,7 +29,7 @@
 
 .entry-content {
 	.entry-section {
-		&.quote {
+		&.quote, &.slider {
 			blockquote {
 				display: block;
 				margin: 1em 0;
@@ -45,6 +45,42 @@
 				a {
 					font-weight: 400;
 				}
+			}
+		}
+		&.slider {
+			blockquote {
+				margin: 0;
+				padding: 0;
+
+				margin-bottom: 1em;
+
+				// max-height: 0;
+				// overflow: hidden;
+
+				// -webkit-transition: max-height 2500ms;
+				// transition: max-height 2500ms;
+
+				.inner {
+					padding: 1em 2em;
+				}
+			}
+			h3 {
+				display: block;
+				margin: 0;
+				padding: .5em 2em;
+				font-size: 1em;
+				font-weight: 300;
+				cursor: pointer;
+			}
+			.active blockquote {
+
+				// max-height: 200vh;
+				// height: 100%;
+				// overflow: auto;
+
+				// -webkit-transition: max-height 2500ms;
+				// transition: max-height 2500ms;
+
 			}
 		}
 	}
