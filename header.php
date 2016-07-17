@@ -29,17 +29,21 @@
 		<div class="primary" id="primary-header">
 			<div class="row">
 				<div class="site-branding">
-					<?php
-					if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-					endif;
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<?php if ( function_exists( 'jetpack_has_site_logo' ) ) : 
+							if ( jetpack_get_site_logo() ) : ?>
+								<img src="<?php echo esc_url( jetpack_get_site_logo( 'url' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="site-logo">
+							<?php else: ?>
+								<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+							<?php endif; ?>
+						<?php else: ?>
+							<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+						<?php endif; ?>
+					</a>
 
-					$description = get_bloginfo( 'description', 'display' );
+					<?php $description = get_bloginfo( 'description', 'display' );
 					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+						<h2 class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></h2>
 					<?php
 					endif; ?>
 				</div><!-- .site-branding -->

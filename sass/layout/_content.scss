@@ -4,8 +4,8 @@
 }
 .entry-section:not(:last-child)::after {
 	height: 1px;
-	width: 120vw;
-	margin-left: -20vw;
+	width: 300vw;
+	margin-left: -100vw;
 	background-color: red;
 	content: "";
 	display: block;

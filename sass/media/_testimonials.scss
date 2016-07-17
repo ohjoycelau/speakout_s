@@ -1,3 +1,62 @@
+.iosslider {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+
+	width: 100%;
+	height: 50vh;
+
+	.slider {
+		
+		width: 100%;
+		height: 100%;
+
+		.slide {
+			float: left;
+			width: 100%;
+			height: 100%;
+			.testimonial {
+				// height: 100%;
+				overflow-y: scroll;
+			}
+		}
+	}
+
+	background-color: #FFFFFF;
+	border: 1px solid #EFEFEF;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	margin: 1em 0;
+
+	-webkit-transition: height 700ms;
+	transition: height 700ms;
+	-webkit-transition-delay: 350ms;
+	transition-delay: 350ms;
+
+}
+@media screen and (min-width: 768px) {
+	.iosslider {
+		height: 50vh;
+	}
+}
+.iosslider-navigation {
+	.dot {
+		background-color: #000000;
+		border: 2px solid #000000;
+		border-radius: 100%;
+		width: .65em;
+		height: .65em;
+		margin: 0 .75em 0 0;
+		content: "";
+		display: inline-block;
+		&.active, &.active:hover {
+			background-color: rgba(0,0,0,0);
+		}
+	}
+}
+
 .testimonial {
-	padding: 0 2em;
+	padding: 1em 2em;
+	font-size: .8em;
+	line-height: 1.5em;
 }

@@ -1,5 +1,11 @@
 // @import "../layout/content-sidebar";
 // @import "../layout/sidebar-content";
+
+.site {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/

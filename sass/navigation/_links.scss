@@ -1,5 +1,6 @@
 a {
 	color: $color__link;
+	text-decoration: none;
 
 	&:visited {
 		color: $color__link-visited;
@@ -18,7 +19,7 @@ a {
 	}
 }
 
-.site-header {
+.menu {
 	a {
 		&:link,
 		&:visited,
@@ -42,4 +43,7 @@ a {
 	.mbl-navigation a {
 		font-size: 1em;
 	}
+}
+.site-branding a {
+	text-decoration: none;
 }

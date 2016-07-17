@@ -31,6 +31,9 @@ function speakout_s_setup() {
 	 */
 	load_theme_textdomain( 'speakout_s', get_template_directory() . '/languages' );
 
+	// Add custom logo support.
+	add_theme_support( 'site-logo', size );
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -94,8 +97,6 @@ function speakout_s_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'speakout_s_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'speakout_s_content_width', 0 );
-
-
 
 
 

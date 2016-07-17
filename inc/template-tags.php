@@ -7,7 +7,6 @@
  * @package speakout_s
  */
 
-
 if ( ! function_exists( 'speakout_s_query' ) ) :
 function speakout_s_query( $customPost ) {
 	$args = array( 'post_type' => $customPost, 'posts_per_page' => 3 );

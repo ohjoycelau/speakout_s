@@ -125,6 +125,16 @@ if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 				border-color: <?php echo esc_html( $headerColor ); ?>;
 			}
 
+			.iosslider-navigation .dot {
+				background-color: <?php echo esc_html( $linkColor ); ?>;
+				border: 2px solid <?php echo esc_html( $linkColor ); ?>;
+			}
+			.iosslider-navigation .dot:hover {
+				background-color: <?php echo esc_html( $headerColor ); ?>;
+				border: 2px solid <?php echo esc_html( $headerColor ); ?>;
+			}
+
+
 		</style><?php
 	}
 endif;

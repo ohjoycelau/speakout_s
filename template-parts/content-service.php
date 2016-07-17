@@ -23,8 +23,7 @@
 		<div class="entry-meta">
 			<?php speakout_s_posted_on(); ?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

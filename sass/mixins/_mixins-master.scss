@@ -39,6 +39,13 @@
 	align-items: $align;
 	-webkit-align-items: $align;
 }
+@mixin flexOrder($order) {
+	-webkit-box-ordinal-group: $order;
+	-moz-box-ordinal-group: $order;
+	-ms-flex-order: $order;
+	-webkit-order: $order;
+	order: $order;
+}
 
 // QA TEMP
 @mixin debug {

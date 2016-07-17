@@ -6,6 +6,8 @@
  */
 ( function() {
 
+	console.log( "site-header sticky ready" );
+
 	$( ".site-header" ).sticky();
 
 	var overlay, mblMenu;

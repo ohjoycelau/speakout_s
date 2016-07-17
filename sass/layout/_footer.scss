@@ -1,13 +1,56 @@
 .site-footer{
-	.site-info {
-		.row {
-			width: $size__site-width;
-			margin: 0 auto;
+	.row {
+		width: $size__site-width;
+		margin: 0 auto;
+		@include flex(row, wrap, flex-start, flex-start);
+	}
+	.site-branding {
+		padding: 1.75em 0 1em;
+		.site-logo {
+			max-height: 2em;	
 		}
+		.site-title {
+			font-size: 1.25em;
+			text-decoration: none;
+			margin: 0;
+			padding: 0;
+			color: #ffffff;
+			font-weight: 300;
+			letter-spacing: 0.0275em;
+		}
+	}
+	.primary, .secondary {
+		width: 100%;
+	}
+	.primary {
+		@include flexOrder(1);
+	}
+	.secondary {
+		@include flexOrder(2);
+	}
+	.copyright {
+		color: #FFFFFF;
+		opacity: .5;
+		font-size: .65em;
+		letter-spacing: 0.0725em;
+		padding: 1.25em 0 1.5em;
+	}
+	.menu a {
+		font-weight: 200;
 	}
 }
 @media screen and ( min-width: $size__site-maxwidth ) {
-	.site-footer .site-info .row {
-		max-width: $size__site-maxwidth;
+	.site-footer {
+		.row {
+			max-width: $size__site-maxwidth;
+		}
+		.primary {
+			width: 75%;
+			@include flexOrder(2);
+		}
+		.secondary {
+			width: 25%;
+			@include flexOrder(1);
+		}
 	}
 }
