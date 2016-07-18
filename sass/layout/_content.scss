@@ -7,3 +7,22 @@
 		max-width: $size__site-maxwidth;
 	}
 }
+
+// About Page Template
+.page-template[class*='about'] {
+	@media screen and ( min-width: 640px ) {
+		.site-main {
+			.row {
+				@include flex(flex, no-wrap, space-around, flex-start);
+			}
+			.profile_image {
+				width: 25%;
+				margin: 1.3em 0;
+			}
+			.about_content {
+				width: 75%;
+				padding-left: 2em;
+			}
+		}
+	}
+}

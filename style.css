@@ -312,6 +312,28 @@ big {
 @media screen and (min-width: 990px) {
   .site-content {
     max-width: 990px; } }
+@media screen and (min-width: 640px) {
+  .page-template[class*='about'] .site-main .row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: flex;
+    -webkit-flex-direction: flex;
+    flex-wrap: no-wrap;
+    -webkit-flex-wrap: no-wrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    align-items: flex-start;
+    -webkit-align-items: flex-start; }
+  .page-template[class*='about'] .site-main .profile_image {
+    width: 25%;
+    margin: 1.3em 0; }
+  .page-template[class*='about'] .site-main .about_content {
+    width: 75%;
+    padding-left: 2em; } }
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
