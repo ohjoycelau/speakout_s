@@ -204,7 +204,7 @@ if ( ! function_exists( 'mc_widgets_init' ) ) :
 		register_sidebar( array(
 			'name'			=> 'Masterclass Sidebar',
 			'id'			=> 'mc_sidebar',
-			'before_widget'	=> '<div>',
+			'before_widget'	=> '<div class="widget">',
 			'after_widget'	=> '</div>',
 			'before_title'	=> '<h3 class="widget_title">',
 			'after_title'	=> '</h3>',

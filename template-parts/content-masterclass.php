@@ -22,31 +22,37 @@
 			} ?>
 
 		<div class="entry-meta">
-			
-			<?php if ( get_field( 'mc_dates') ) :
-				echo '<h3>When</h3><ul>';
-				while ( has_sub_field( 'mc_dates' ) ) :
-					echo '<li><ul><li>';
-					the_sub_field( 'mc_date' );
-					echo '</li><li>';
-					the_sub_field( 'mc_time' );
-					echo '</li></ul></li>';
-				endwhile;
-				echo '</ul>';
-			endif; ?>
+			<div class="row">
+			<?php if ( get_field( 'mc_dates') ) : ?>
+				<div class="when">
+					<h4>When</h4>
+					<ul>
+					<?php while ( has_sub_field( 'mc_dates' ) ) :
+						$dateformatstring = "l, F d, Y";
+						$unixtimestamp = strtotime(get_field('mc_date')); ?>
+						<li>
+							<ul>
+								<li class="day"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></li>
+								<li class="time"><?php the_sub_field( 'mc_time' ); ?></li>
+							</ul>
+						</li>
+					<?php endwhile; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
 
-			<?php if ( get_field( 'mc_location' ) ) :
-				echo '<h3>Where</h3><p>';
-				the_field( 'mc_location' );
-				echo '</p>';
-			endif; ?>
-
-
+			<?php if ( get_field( 'mc_location' ) ) : ?>
+				<div class="where">
+					<h4>Where</h4>
+					<p><?php the_field( 'mc_location' ); ?></p>
+				</div>
+			<?php endif; ?>
+			</div><!-- .row-->
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="mc-single entry-content">
 
 			<?php if ( is_single() ) : ?>
 				<h3 class="debug">If single page, longer description</h3>
@@ -61,7 +67,7 @@
 			<?php if ( get_field( 'mc_cta' ) ) : ?>
 				<div class="mc_cta">
 					<?php while ( has_sub_field( 'mc_cta' ) ) : ?>
-						<a href="<?php the_sub_field( 'mc_cta_link' ); ?>" target="blank"><?php the_sub_field( 'mc_cta_text' ); ?></a>
+						<a href="<?php the_sub_field( 'mc_cta_link' ); ?>" target="blank" class="btn"><?php the_sub_field( 'mc_cta_text' ); ?></a>
 					<?php endwhile; ?>
 				</div>
 			<?php endif; ?>

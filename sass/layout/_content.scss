@@ -2,17 +2,6 @@
 	width: $size__site-width;
 	margin: 0 auto;
 }
-.entry-section:not(:last-child)::after {
-	height: 1px;
-	// width: 100%;
-	width: 300vw;
-	margin-left: -100vw;
-	// background-color: red;
-	content: "";
-	display: block;
-	margin-top: 5em;
-	margin-bottom: 4em;
-}
 @media screen and ( min-width: $size__site-maxwidth ) {
 	.site-content {
 		max-width: $size__site-maxwidth;

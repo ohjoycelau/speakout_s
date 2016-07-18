@@ -4,6 +4,8 @@
 
 .hentry {
 	margin: 0 0 1.5em;
+	&.type-masterclass {
+	}
 }
 
 .byline,
@@ -26,6 +28,21 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+
+// Horizontal Rule
+.single-service .entry-section, .archive .type-masterclass {
+	&:not(:last-child)::after {
+		height: 1px;
+		width: 300vw;
+		margin-left: -100vw;
+		content: "";
+		display: block;
+		margin-top: 5em;
+		margin-bottom: 4em;
+	}
+}
+
 
 .entry-content {
 	.entry-section {
@@ -94,6 +111,52 @@
 					// -webkit-transition: max-height 2500ms;
 					// transition: max-height 2500ms;
 				}
+			}
+		}
+	}
+}
+
+
+
+.type-masterclass {
+	.entry-meta {
+		.row {
+			@include flex(row, wrap, space-around, flex-start);
+		}
+		.where, .when {
+			width: 100%;
+		}
+		ul {
+			list-style: none;
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+	}
+}
+@media screen and ( min-width: 768px ) {
+	.type-masterclass {
+		.entry-meta {
+			.where, .when {
+				width: 50%;
+			}
+		}
+	}
+}
+
+
+// Masterclass Widget Area Layout
+
+@media screen and ( min-width: 640px ) {
+	.post-type-archive-masterclass, .single-masterclass {
+		.site-content {
+			@include flex(row, no-wrap, space-around, flex-start);
+			.content-area {
+				width: 75%;
+				padding-right: 2em;
+			}
+			.widget-area {
+				@include debug;
+				width: 25%;
 			}
 		}
 	}

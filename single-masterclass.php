@@ -33,16 +33,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-
-	<div class="debug">
-		<h1>Register and add widget area</h1>
-		<?php if ( is_active_sidebar( 'mc_sidebar' ) ) : ?>
-			<div id="mc-sidebar" clas="mc-sidebar widget-area" role="complementary" >
-				<?php dynamic_sidebar( 'mc_sidebar' ); ?>
-			</div>
-		<?php endif; ?>
-	</div>
-
 <?php
 get_sidebar();
 get_footer();

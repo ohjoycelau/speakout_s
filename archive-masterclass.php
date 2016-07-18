@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="mc-archive content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -46,17 +46,6 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-
-	<div class="debug">
-		<h1>Register and add widget area</h1>
-		<?php if ( is_active_sidebar( 'mc_sidebar' ) ) : ?>
-			<div id="primary-sidebar" clas="primary-sidebar widget-area" role="complementary" >
-				<?php dynamic_sidebar( 'mc_sidebar' ); ?>
-			</div>
-		<?php endif; ?>
-	</div>
-
 	
 <?php
 get_sidebar();
