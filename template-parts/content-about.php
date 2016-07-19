@@ -18,11 +18,11 @@
 	<div class="entry-content">
 
 		<div class="row">
-			<div class="featured_image profile_image">
+			<div class="featured-image profile-image">
 				<?php the_post_thumbnail( $size, $attr ); ?>
 			</div>
 
-			<div class="about_content">
+			<div class="about-content">
 			<?php
 				the_content();
 
