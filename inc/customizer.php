@@ -70,8 +70,28 @@ function speakout_s_customize_register( $wp_customize ) {
 				'settings'	=> 'footer_color_setting',
 			) )
 	);
+
+
+	$wp_customize->add_section( 'masterclass_section', array(
+		'title'		=> __( 'Masterclass', 'speakout_s' ),
+	) );
+	$wp_customize->add_setting( 'masterclass_archive_setting', array(
+		'default'		=> 'Singing Masterclass',
+	) );
+	$wp_customize->add_control(
+		'masterclass_archive',
+		array(
+			'label'			=> __( 'Masterclass Header', 'speakout_s' ),
+			'description'	=> __( 'Masterclass custom post type archive headline.', 'speakout_s' ),
+			'section'		=> 'masterclass_section',
+			'settings'		=> 'masterclass_archive_setting',
+		)
+	);
+
+
 }
 add_action( 'customize_register', 'speakout_s_customize_register' );
+
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
@@ -145,15 +165,36 @@ if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 				opacity: 0.075;
 			}
 
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"],
 			.btn:link,
 			.btn:visited {
 				background-color: <?php echo esc_html( $linkColor ); ?>;
 				color: <?php echo esc_html( $backgroundColor ); ?>;
 			}
+			button:hover,
+			input[type="button"]:hover,
+			input[type="reset"]:hover,
+			input[type="submit"]:hover,
+			button:active,
+			input[type="button"]:active,
+			input[type="reset"]:active,
+			input[type="submit"]:active,
+			button:focus,
+			input[type="button"]:focus,
+			input[type="reset"]:focus,
+			input[type="submit"]:focus,
 			.btn:hover,
 			.btn:active,
 			.btn:focus {
 				background-color: <?php echo esc_html( $headerColor ); ?>;
+			}
+
+			.wpcf7-validation-errors {
+				color: <?php echo esc_html( $linkColor ); ?> !important;
+				border-color: <?php echo esc_html( $linkColor ); ?> !important;
 			}
 
 			.slider .accordian h3 {

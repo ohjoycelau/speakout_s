@@ -13,12 +13,11 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-input,
 textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
 	border-radius: 3px;
-	padding: 3px;
+	padding: .5em;
 	margin: .5em 0;
 
 	width: 100%;
@@ -34,4 +33,9 @@ select {
 
 textarea {
 	width: 100%;
+}
+
+label {
+	font-size: .8em;
+	line-height: 1em;
 }

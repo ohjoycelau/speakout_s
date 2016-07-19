@@ -9,6 +9,7 @@
 
 require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
 require_once( __DIR__ . '/plugins/acf-repeater/acf-repeater.php' );
+
 // require_once( __DIR__ . '/plugins/advanced-custom-fields/core/local.php' );
 
 // define( 'ACF_LITE', true );
@@ -212,50 +213,6 @@ if ( ! function_exists( 'mc_widgets_init' ) ) :
 	}
 endif;
 add_action( 'widgets_init', 'mc_widgets_init' );
-
-
-
-/**
- * Custom Post Type Example.
- */
-function speakout_s_post_type_example() {
-	register_post_type( 'example',
-		array(
-			'labels' => array(
-				'name'               => __( 'Examples' ),
-				'singular_name'      => __( 'Example' ),
-				'menu_name'          => __( 'Examples' ),
-				'name_admin_bar'     => __( 'Examples' ),
-				'add_new'            => __( 'Add New' ),
-				'add_new_item'       => __( 'Add New Example' ),
-				'edit_item'          => __( 'Edit Example' ),
-				'new_item'           => __( 'New Example' ),
-				'view_item'          => __( 'View Example' ),
-				'search_items'       => __( 'Search Examples' ),
-				'not_found'          => __( 'No examples found' ),
-				'not_found_in_trash' => __( 'No examples found in trash' ),
-				'all_items'          => __( 'All Examples' ),
-			),
-			'public' => true,
-			'has_archive' => false,
-			'menu_position' => 2,
-			'menu_icon' => 'dashicons-format-aside',
-			'supports' => array( 'title', 'thumbnail', 'revisions' ),
-			'taxonomies' => array('post_tag'),
-			'can_export' => true,
-			'query_var' => true,
-		)
-	);
-	flush_rewrite_rules();
-}
-add_action( 'init', 'speakout_s_post_type_example' );
-
-
-
-
-
-
-
 
 
 

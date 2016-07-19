@@ -3,7 +3,7 @@
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 3em 0 1.5em 0;
 	&.type-masterclass {
 	}
 }
@@ -41,6 +41,10 @@
 		margin-top: 5em;
 		margin-bottom: 4em;
 	}
+}
+.archive .type-masterclass:not(:last-child)::after {
+	width: 100%;
+	margin-left: 0;
 }
 
 
@@ -156,7 +160,6 @@
 				padding-right: 2em;
 			}
 			.widget-area {
-				@include debug;
 				width: 25%;
 			}
 		}

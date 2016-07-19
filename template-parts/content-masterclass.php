@@ -11,8 +11,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<h5>content-masterclass.php</h5>
-	
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) {
@@ -55,11 +53,10 @@
 	<div class="mc-single entry-content">
 
 			<?php if ( is_single() ) : ?>
-				<h3 class="debug">If single page, longer description</h3>
 				<?php the_field( 'mc_description' ); ?>
 			<?php endif; ?>
+			
 			<?php if ( is_archive() ) : ?>
-				<h3 class="debug">If archive page, short description</h3>
 				<?php showBeforeMore(get_field('mc_description')); ?>
 			<?php endif; ?>
 
