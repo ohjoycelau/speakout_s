@@ -112,6 +112,10 @@ function speakout_s_setup() {
 		'primary' => esc_html__( 'Primary', 'speakout_s' ),
 	) );
 
+	register_nav_menus( array(
+		'secondary' => esc_html__( 'Secondary', 'speakout_s' ),
+	) );
+
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
