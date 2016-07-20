@@ -89,7 +89,7 @@
 	</header><!-- #masthead -->
 
 	<?php if ( is_home() ) : ?>
-		<div class="header-image"></div>
+		<div class="header-image" style="background-image:url('<?php echo( get_header_image() ); ?>');"></div>
 	<?php endif; ?>
 	
 	<div id="content" class="site-content">

@@ -351,6 +351,9 @@ big {
       display: block;
       padding-bottom: 50%; }
 
+.no-scroll.home .entry-content .excerpt .entry {
+  display: none; }
+
 @media screen and (min-width: 640px) {
   .home .site-main {
     margin-top: 10em; }
@@ -934,7 +937,6 @@ a {
     font-size: 1em; } }
 .header-image {
   line-height: 0;
-  background-image: url("http://localhost:8888/wordpress/wp-content/uploads/2016/06/cropped-masterclass-bw.jpg");
   background-size: cover;
   background-position: 50% 50%;
   width: 100vw;
