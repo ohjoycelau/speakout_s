@@ -40,6 +40,9 @@ a {
 		border-color: #FFFFFF;
 		opacity: 0.8;
 	}
+	.site-header & .current-menu-item a {
+		border-color: #FFFFFF;
+	}
 	.mbl-navigation a {
 		font-size: 1em;
 	}

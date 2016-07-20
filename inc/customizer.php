@@ -141,6 +141,9 @@ if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 			.mbl-navigation.active a:visited {
 				color: <?php echo esc_html( $linkColor ); ?>;
 			}
+			.site-header .mbl-navigation.active .menu .current-menu-item a {
+				border-color: <?php echo esc_html( $linkColor ); ?>;
+			}
 			.service-menu a:hover,
 			.service-menu a:active,
 			.service-menu a:focus,

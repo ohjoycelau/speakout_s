@@ -39,6 +39,7 @@
 	} );
 
 
+	// scrollTo Service Menu 
 	var serviceMenu = $( ".service-menu.menu" );
 	if ( serviceMenu.length ) {
 

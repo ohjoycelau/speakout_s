@@ -7,18 +7,7 @@
  * @package speakout_s
  */
 
-if ( ! function_exists( 'speakout_s_query' ) ) :
-function speakout_s_query( $customPost ) {
-	$args = array( 'post_type' => $customPost, 'posts_per_page' => 3 );
-	$loop = new WP_Query( $args );
-	while ( $loop->have_posts() ) : $loop->the_post();
-	  the_title();
-	  echo '<div class="entry-content">';
-	  the_content();
-	  echo '</div>';
-	endwhile;
-}
-endif;
+
 
 
 if ( ! function_exists( 'speakout_s_posted_on' ) ) :

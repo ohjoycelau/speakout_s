@@ -47,6 +47,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic,500|Roboto+Slab:100,300,400);
+@import url(inc/fontcustom/fontcustom.css);
 .debug {
   background-color: rgba(255, 0, 0, 0.25); }
 
@@ -323,15 +324,21 @@ big {
   transition: all 400ms; }
 .home .site-main {
   margin-top: 1.5em; }
-.home .entry-header h2 {
-  margin: .25em 0;
-  font-weight: 300;
-  color: #202020; }
 .home .entry-content {
   margin: 0; }
   .home .entry-content .excerpt {
     background-color: #ffffff;
     padding: 1em 1.5em 2em; }
+    .home .entry-content .excerpt .entry-header h2 {
+      margin: .25em 0;
+      font-weight: 300;
+      color: #202020; }
+    .home .entry-content .excerpt .entry {
+      z-index: 1;
+      position: relative; }
+      .home .entry-content .excerpt .entry .more {
+        font-weight: 400;
+        font-size: .8em; }
 .home .entry-thumbnail {
   line-height: 0; }
   .home .entry-thumbnail .aspect-ratio {
@@ -628,6 +635,8 @@ a {
 .menu a:hover, .menu a:active, .menu a:focus {
   border-color: #FFFFFF;
   opacity: 0.8; }
+.site-header .menu .current-menu-item a {
+  border-color: #FFFFFF; }
 .menu .mbl-navigation a {
   font-size: 1em; }
 
@@ -652,6 +661,10 @@ a {
 .site-header.active {
   height: 100vh;
   overflow: scroll; }
+
+.mbl-menu {
+  color: #ffffff;
+  font-size: 1.5em; }
 
 .site-footer ul {
   margin: 0;
@@ -828,8 +841,7 @@ a {
     .site-header .primary .main-navigation .mbl-menu {
       float: right; }
   .site-header .secondary {
-    background-color: #FFFFFF;
-    border: 1px solid #efefef; }
+    background-color: #FFFFFF; }
     .site-header .secondary .row .menus {
       width: 100%; }
     .site-header .secondary .row .service-menu {

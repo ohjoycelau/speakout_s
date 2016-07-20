@@ -29,18 +29,26 @@
 	.site-main {
 		margin-top: 1.5em;
 	}
-	.entry-header {
-		h2 {
-			margin: .25em 0;
-			font-weight: 300;
-			color: #202020;
-		}
-	}
 	.entry-content {
 		margin: 0;
 		.excerpt {
 			background-color: #ffffff;
 			padding: 1em 1.5em 2em;
+			.entry-header {
+				h2 {
+					margin: .25em 0;
+					font-weight: 300;
+					color: #202020;
+				}
+			}
+			.entry {
+				z-index: 1;
+				position: relative;
+				.more {
+					font-weight: 400;
+					font-size: .8em;
+				}
+			}
 		}
 	}
 	.entry-thumbnail {

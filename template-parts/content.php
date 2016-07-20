@@ -19,10 +19,12 @@
 						<h2><?php the_title(); ?></h2>
 					</header>
 
-					<?php if ( get_field( 'excerpt' ) ) : ?>
-						<?php the_field( 'excerpt' ); ?>
-						<br/><a href="<?php esc_url( get_permalink() ); ?>">Learn More</a>
-					<?php endif; ?>
+					<div class="entry">
+						<?php if ( get_field( 'excerpt' ) ) : ?>
+							<?php the_field( 'excerpt' ); ?>
+							<br/><a href="<?php echo esc_url( get_permalink() ); ?>" class="more">Learn More</a>
+						<?php endif; ?>
+					</div>
 				</div>
 
 			</div>

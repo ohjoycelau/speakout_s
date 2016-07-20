@@ -10,9 +10,11 @@
 require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
 require_once( __DIR__ . '/plugins/acf-repeater/acf-repeater.php' );
 
+include 'inc/acf-load.php';
+define( 'ACF_LITE', true );
+
 // require_once( __DIR__ . '/plugins/advanced-custom-fields/core/local.php' );
 
-// define( 'ACF_LITE', true );
 
 
 require_once get_template_directory() . '/plugins/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php';

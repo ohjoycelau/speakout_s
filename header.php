@@ -49,7 +49,7 @@
 				</div><!-- .site-branding -->
 
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<div class="mbl-menu">menu</div>
+					<div class="mbl-menu"><span class="icon-menu"></span></div>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 				</nav><!-- #site-navigation -->
 			</div>
