@@ -38,4 +38,36 @@
 		}
 	} );
 
+
+	var serviceMenu = $( ".service-menu.menu" );
+	if ( serviceMenu.length ) {
+
+		var offset = $( '.site-header' ).height();
+		offset = parseInt( offset );
+
+		serviceMenu.find( 'a' ).each( function() {
+			$(this).bind( 'click', function( e ) {
+				
+				e.preventDefault();
+
+				var target = $(this).attr("href");
+				target = $( target );
+
+				var y = target.offset().top;
+				y = parseInt( y );
+				y = y - offset - 20;
+				
+				console.log( y );
+
+				$( 'html, body ' ).animate({
+					scrollTop: y
+				}, 800 )
+
+				return false;
+
+			});
+		} );
+
+	} 
+
 } )();

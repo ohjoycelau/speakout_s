@@ -3,8 +3,9 @@
 }
 
 .hentry {
-	margin: 3em 0 1.5em 0;
-	&.type-masterclass {
+	margin: 0 0 1.5em 0;
+	@media screen and ( min-width: 768px ) {
+		margin: 3em 0 1.5em 0;
 	}
 }
 

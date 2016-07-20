@@ -88,4 +88,8 @@
 	</div><!-- .header-wrapper -->
 	</header><!-- #masthead -->
 
+	<?php if ( is_home() ) : ?>
+		<div class="header-image"></div>
+	<?php endif; ?>
+	
 	<div id="content" class="site-content">

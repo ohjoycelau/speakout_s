@@ -9,37 +9,28 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php speakout_s_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+			<div class="entry-content">
 
-	<div class="entry-content">
-		<?php the_post_thumbnail( $size, $attr ); ?>
-		<?php if ( get_field( 'excerpt' ) ) : ?>
-			<?php the_field( 'excerpt' ); ?>
-		<?php endif; ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'speakout_s' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+				<div class="excerpt">
 
-	<footer class="entry-footer">
-		<?php speakout_s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+					<header class="entry-header">
+						<h2><?php the_title(); ?></h2>
+					</header>
+
+					<?php if ( get_field( 'excerpt' ) ) : ?>
+						<?php the_field( 'excerpt' ); ?>
+						<br/><a href="<?php esc_url( get_permalink() ); ?>">Learn More</a>
+					<?php endif; ?>
+				</div>
+
+			</div>
+
+			<div class="entry-thumbnail">
+				<div class="aspect-ratio" style="background-image: url( '<?php the_post_thumbnail_url(); ?>' ); ">
+				</div>
+			</div>
+
+	</article>
+

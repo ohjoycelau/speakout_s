@@ -109,7 +109,9 @@ function speakout_s_entry_footer() {
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
-		'</span>'
+		'</span>',
+		'0',
+		'btn'
 	);
 }
 endif;

@@ -145,3 +145,25 @@
 		}
 	}
 }
+
+.header-image {
+	line-height: 0;
+	background-image: url("http://localhost:8888/wordpress/wp-content/uploads/2016/06/cropped-masterclass-bw.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100vw;
+	max-height: 25em;
+	&:after {
+		content: "";
+		display: block;
+		padding-bottom: 40%;
+	}
+}
+@media screen and ( min-width: 640px ) {
+	.header-image {
+		z-index: -1000;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

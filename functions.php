@@ -10,10 +10,59 @@
 require_once( __DIR__ . '/plugins/advanced-custom-fields/acf.php' );
 require_once( __DIR__ . '/plugins/acf-repeater/acf-repeater.php' );
 
-
 // require_once( __DIR__ . '/plugins/advanced-custom-fields/core/local.php' );
 
 // define( 'ACF_LITE', true );
+
+
+require_once get_template_directory() . '/plugins/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'speakout_s_register_required_plugins' );
+
+function speakout_s_register_required_plugins() {
+
+	$plugins = array(
+
+		array(
+			'name'               => 'Contact Form 7', // The plugin name.
+			'slug'               => 'contact-form-7', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/plugins/contact-form-7.4.4.2.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		),
+
+		array(
+			'name'               => 'Really Simple CAPTCHA', // The plugin name.
+			'slug'               => 'simple-captcha', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/plugins/captcha.4.2.2.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+
+	);
+
+	$config = array(
+		'id'           => 'speakout-s',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+
+	tgmpa( $plugins, $config );
+}
+
 
 
 if ( ! function_exists( 'speakout_s_setup' ) ) :
@@ -46,6 +95,8 @@ function speakout_s_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
+
+	add_theme_support( 'custom-header' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -81,7 +132,6 @@ add_action( 'after_setup_theme', 'speakout_s_setup' );
  */
 function speakout_s_remove_theme_support() {
 	remove_theme_support( 'custom-background' );
-	remove_theme_support( 'custom-header' );
 	remove_theme_support( 'post-formats' );
 }
 add_action( 'after_setup_theme', 'speakout_s_remove_theme_support', 11 );
