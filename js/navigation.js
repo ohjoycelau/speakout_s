@@ -30,6 +30,7 @@
 	} );
 
 	$( window ).resize( function() {
+		$( ".site-header" ).sticky( 'update' );
 		var width = $( window ).innerWidth();
 		if ( width > 768 && overlay.hasClass( 'active' ) ) {
 			$( "body" ).removeClass( 'no-scroll' );
