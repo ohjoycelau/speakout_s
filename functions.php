@@ -47,9 +47,37 @@ function speakout_s_register_required_plugins() {
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 		array(
-			'name'      => 'Jetpack',
-			'slug'      => 'jetpack',
-			'source'    => 'https://github.com/Automattic/jetpack/archive/master.zip',
+			'name'               => 'MailChimp List Subscribe Form', // The plugin name.
+			'slug'               => 'mailchimp', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/plugins/mailchimp.1.5.1.zip', // The plugin source.
+			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+		array(
+			'name'               => 'WordPress Importer', // The plugin name.
+			'slug'               => 'wordpress-importer', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/plugins/wordpress-importer.0.6.1.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+		array(
+			'name'               => 'Jetpack', // The plugin name.
+			'slug'               => 'jetpack', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/plugins/jetpack-master.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 
 	);

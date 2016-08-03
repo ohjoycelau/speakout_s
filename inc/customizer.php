@@ -104,7 +104,7 @@ add_action( 'customize_preview_init', 'speakout_s_customize_preview_js' );
 
 if ( ! function_exists( 'speakout_s_customizer_css' ) ) :
 	function speakout_s_customizer_css() {
-		$backgroundColor = get_theme_mod( 'background_color_setting', '#8A0F3E' );
+		$backgroundColor = get_theme_mod( 'background_color_setting', '#EFEFEF' );
 		$headerColor = get_theme_mod( 'header_color_setting', '#8A0F3E' );
 		$linkColor = get_theme_mod( 'link_color_setting', '#BE204D' );
 		$footerColor = get_theme_mod( 'footer_color_setting', '#4A4A4A' );
